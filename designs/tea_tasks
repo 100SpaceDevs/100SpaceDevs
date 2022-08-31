@@ -1,0 +1,4 @@
+#TODO :
+    - authentication
+    - set up local strategy
+    - (https://www.passportjs.org/packages/passport-google-oauth2/)
