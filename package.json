@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/100SpaceDevs/100SpaceDevs/issues"
   },
-  "homepage": "https://github.com/100SpaceDevs/100SpaceDevs/blob/omi/README.md",
+  "homepage": "https://github.com/100SpaceDevs/100SpaceDevs#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-mongo": "^4.6.0",
