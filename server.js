@@ -15,11 +15,13 @@ app.set("view engine", "ejs"); // tells the browser we will be using ejs to rend
 
 app.use(express.static("public")); // static pages are accessible through the public folder
 
+
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json()); // import the server information as a JSON object
 
 app.use(logger("dev")); // morgan's request handler with a "dev" format
+
 
 app.use(
   session({
@@ -28,12 +30,15 @@ app.use(
     saveUninitialized: false,
     store: MongoStore.create({
       mongoUrl: process.env.DB_STRING,
+
     }),
   })
 );
 
 app.use(passport.initialize());
 app.use(passport.session());
+//Routes
+app.use("/", homeRoutes);
 
 //Routes
 app.use("/", homeRoutes);
