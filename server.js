@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const connectDB = require("./config/database");
 const logger = require("morgan");
 const homeRoutes = require("./routes/homeRoutes");
@@ -20,16 +21,16 @@ app.use(express.json());
 // morgan's request handler with a "dev" format
 app.use(logger("dev"));
 
-// app.use(
-//   session({
-//     secret: "keyboard cat",
-//     resave: false,
-//     saveUninitialized: false,
-//     store: new MongoTailableCursorError({
-//       mongooseConnection: mongoose.connection,
-//     }),
-//   })
-// );
+app.use(
+  session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+    }),
+  })
+);
 
 app.use(passport.initialize());
 app.use(passport.session());
