@@ -1,5 +1,5 @@
 {
-  "name": "100devsinspace",
+  "name": "100SpaceDevs",
   "version": "1.0.0",
   "description": "WE GO GET SPACE",
   "main": "app.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ControlAltTea/100DevsInSpace.git"
+    "url": "https://github.com/100SpaceDevs/100SpaceDevs.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ControlAltTea/100DevsInSpace/issues"
+    "url": "https://github.com/100SpaceDevs/100SpaceDevs/issues"
   },
-  "homepage": "https://github.com/ControlAltTea/100DevsInSpace#readme",
+  "homepage": "https://github.com/100SpaceDevs/100SpaceDevs/blob/omi/README.md",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-mongo": "^4.6.0",
