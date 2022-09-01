@@ -1,5 +1,5 @@
 module.exports = {
   getIndex: (req, res) => {
-    res.render("index.ejs");
+    res.status(200).send("<h1>Hello World!</h1>");
   },
 };
