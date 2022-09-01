@@ -10,30 +10,36 @@ const homeRoutes = require("./routes/homeRoutes");
 require("dotenv").config({ path: "./config/.env" });
 
 connectDB();
-// tells the browser we will be using ejs to render
-app.set("view engine", "ejs");
 
-// static pages are accessible through the public folderb
-app.use(express.static("public"));
+app.set("view engine", "ejs"); // tells the browser we will be using ejs to render
+
+app.use(express.static("public")); // static pages are accessible through the public folder
+
+
 app.use(express.urlencoded({ extended: true }));
-// import the server information as a JSON object
-app.use(express.json());
-// morgan's request handler with a "dev" format
-app.use(logger("dev"));
+
+app.use(express.json()); // import the server information as a JSON object
+
+app.use(logger("dev")); // morgan's request handler with a "dev" format
+
 
 app.use(
   session({
     secret: "keyboard cat",
     resave: false,
     saveUninitialized: false,
-    store: new MongoStore({
-      mongooseConnection: mongoose.connection,
+    store: MongoStore.create({
+      mongoUrl: process.env.DB_STRING,
+
     }),
   })
 );
 
 app.use(passport.initialize());
 app.use(passport.session());
+//Routes
+app.use("/", homeRoutes);
+
 //Routes
 app.use("/", homeRoutes);
 
