@@ -5,10 +5,10 @@ const User = require('../models/UserModel')
  exports.getLogin = (req, res) => {
    if (req.user) {
      console.log(`req.user`, req.user);
-      return res.redirect('/ships')
+      return res.redirect('/login')
     }
-    res.render('ships', {
-      title: 'ships',
+    res.render('login', {
+      title: 'Login',
     })
   }
   
