@@ -16,8 +16,8 @@ const User = require('../models/UserModel')
      console.log(`${req.user} is logged in`);
       return res.redirect('/')
     }
-    res.render('ships', {
-      title: 'ships',
+    res.render('login', {
+      title: 'Login',
     })
   }
   
