@@ -7,6 +7,8 @@ const MongoStore = require("connect-mongo");
 const connectDB = require("./config/database");
 const logger = require("morgan");
 const homeRoutes = require("./routes/homeRoutes");
+const shipsRoutes = require("./routes/shipsRoutes")
+const flash = require('express-flash')
 require("dotenv").config({ path: "./config/.env" });
 
 connectDB();
@@ -37,11 +39,12 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
-//Routes
-app.use("/", homeRoutes);
+
+app.use(flash())
 
 //Routes
 app.use("/", homeRoutes);
+app.use("/ships", shipsRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on {${process.env.PORT}}.`);
