@@ -4,10 +4,10 @@ module.exports = {
   },
   getLaunch: (req, res) => {
     res.render("launch");
-  }
-  // getLogin: (req, res) => {
-  //   res.render("index");
-  // },
+  },
+  getLogin: (req, res) => {
+    res.render("login");
+  },
   // postLogin: (req, res) => {
   //   res.render("index");
   // },
