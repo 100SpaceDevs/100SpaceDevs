@@ -7,26 +7,27 @@ const MongoStore = require("connect-mongo");
 const connectDB = require("./config/database");
 const logger = require("morgan");
 const homeRoutes = require("./routes/homeRoutes");
-
 const shipsRoutes = require("./routes/shipsRoutes")
 const flash = require('express-flash')
+
+// CONFIG PATHS
 require("dotenv").config({ path: "./config/.env" });
+// Passport config
+require('./config/passport')(passport)
+
 
 connectDB();
+
 
 app.set("view engine", "ejs"); // tells the browser we will be using ejs to render
 
 app.use(express.static("public")); // static pages are accessible through the public folder
-
-
 
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json()); // import the server information as a JSON object
 
 app.use(logger("dev")); // morgan's request handler with a "dev" format
-
-
 
 app.use(
   session({
@@ -40,12 +41,10 @@ app.use(
   })
 );
 
+app.use(flash())
+
 app.use(passport.initialize());
 app.use(passport.session());
-//Routes
-app.use("/", homeRoutes);
-
-app.use(flash())
 
 //Routes
 app.use("/", homeRoutes);
