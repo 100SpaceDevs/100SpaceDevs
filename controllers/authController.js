@@ -19,55 +19,21 @@ const User = require('../models/UserModel')
     res.render('login', {
       title: 'Login',
     })
+}
+  
+// if user exists, redirect /login
+// if user doesn't exist,
+// redirect to /signup
+exports.getSignup = (req, res) => {
+  if (req.user) {
+    return res.redirect('/login')
   }
-  
-  // sends login information
-  // checks if information is valid
-  // if it is valid
-  // redirects /launch
-  // if not, redirects to /login
-  // send a message that the username or password is incorrect
-//   exports.postLogin = (req, res, next) => {
-//     const validationErrors = []
-    
-//     if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' })
-//     if (validator.isEmpty(req.body.password)) validationErrors.push({ msg: 'Password cannot be blank.' })
-  
-//     if (validationErrors.length) {
-//       req.flash('errors', validationErrors)
-//       return res.redirect('/login')
-//     }
-//     req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false })
-  
-//     passport.authenticate('local', (err, user, info) => {
-//       if (err) { return next(err) }
-//       if (!user) {
-//         console.log(`!user`);
-//         req.flash('errors', info)
-//         return res.redirect('/login')
-//       }
-//       req.logIn(user, (err) => {
-//         if (err) { return next(err) }
-//         req.flash('success', { msg: 'Success! You are logged in.' })
-//         res.redirect(req.session.returnTo || '/')
-//       })
-//     })(req, res, next)
-// }
-  
-  
-  // if user exists, redirect /login
-  // if user doesn't exist,
-  // redirect to /signup
-  exports.getSignup = (req, res) => {
-    if (req.user) {
-      return res.redirect('/login')
-    }
-    res.render('signup', {
-        title: 'Create Account'
-    })
-  }
-  
-  // create user
+  res.render('signup', {
+      title: 'Create Account'
+  })
+}
+
+// create user
   // accepts signup information
   // checks if the user information exists in the database
   // if it already exists,
@@ -113,6 +79,43 @@ const User = require('../models/UserModel')
       })
     })
 }
+  
+  // sends login information
+  // checks if information is valid
+  // if it is valid
+  // redirects /launch
+  // if not, redirects to /login
+  // send a message that the username or password is incorrect
+  exports.postLogin = (req, res, next) => {
+    const validationErrors = []
+    
+    if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' })
+    if (validator.isEmpty(req.body.password)) validationErrors.push({ msg: 'Password cannot be blank.' })
+  
+    if (validationErrors.length) {
+      req.flash('errors', validationErrors)
+      return res.redirect('/login')
+    }
+    req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false })
+  
+    passport.authenticate('local', (err, user, info) => {
+      if (err) { return next(err) }
+      if (!user) {
+        console.log(`!user`);
+        req.flash('errors', info)
+        console.log(`info`, info);
+        return res.redirect('/login')
+      }
+      req.logIn(user, (err) => {
+        if (err) { return next(err) }
+        req.flash('success', { msg: 'Success! You are logged in.' })
+        res.redirect(req.session.returnTo || '/')
+      })
+    })(req, res, next)
+}
+  
+  
+
   
 // destroys the current user session
 // redirect /
