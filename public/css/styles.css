@@ -1,0 +1,14 @@
+body{
+    background-color: rgb(1, 8, 17);
+    color: white;
+}
+h1{
+    color: red;
+}
+.completed{
+    text-decoration: line-through;
+    color: rgb(247, 234, 234);
+}
+.not{
+    text-decoration: underline;
+}
