@@ -8,22 +8,9 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Ships</h1>
-    <ul>
-    <% ships.forEach( el => { %>
-            <li class='shipsItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.ships %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
+    <h1>Favorite Ships</h1>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
-
-    <form action="/ships/createShips" method='POST'>
-        <input type="text" placeholder="Enter Ships Item" name='shipsItem'>
-        <input type="submit">
-    </form>
+     <!-- customize ships here -->
 
     <a href="/logout">Logout</a>
 

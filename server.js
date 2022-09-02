@@ -23,8 +23,6 @@ app.set("view engine", "ejs"); // tells the browser we will be using ejs to rend
 
 app.use(express.static("public")); // static pages are accessible through the public folder
 
-
-
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json()); // import the server information as a JSON object
@@ -43,12 +41,10 @@ app.use(
   })
 );
 
+app.use(flash())
+
 app.use(passport.initialize());
 app.use(passport.session());
-//Routes
-app.use("/", homeRoutes);
-
-app.use(flash())
 
 //Routes
 app.use("/", homeRoutes);
