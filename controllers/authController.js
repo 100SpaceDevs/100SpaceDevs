@@ -3,11 +3,12 @@ const validator = require('validator')
 const User = require('../models/UserModel')
 
  exports.getLogin = (req, res) => {
-    if (req.user) {
-      return res.redirect('/')
+   if (req.user) {
+     console.log(`req.user`, req.user);
+      return res.redirect('/ships')
     }
-    res.render('login', {
-      title: 'Login',
+    res.render('ships', {
+      title: 'ships',
     })
   }
   
@@ -26,6 +27,7 @@ const User = require('../models/UserModel')
     passport.authenticate('local', (err, user, info) => {
       if (err) { return next(err) }
       if (!user) {
+        console.log(`!user`);
         req.flash('errors', info)
         return res.redirect('/login')
       }
