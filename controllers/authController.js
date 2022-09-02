@@ -2,13 +2,14 @@ const passport = require('passport')
 const validator = require('validator')
 const User = require('../models/UserModel')
 
+// if the user is already logged in, it will request user login info and redirect to ships page
  exports.getLogin = (req, res) => {
    if (req.user) {
      console.log(`req.user`, req.user);
-      return res.redirect('/login')
+      return res.redirect('/ships')
     }
-    res.render('login', {
-      title: 'Login',
+    res.render('ships', {
+      title: 'Ships',
     })
   }
   
