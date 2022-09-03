@@ -50,5 +50,5 @@ app.use("/ships", shipsRoutes);
 app.use("/launch", launchRoutes);
 
 app.listen(process.env.PORT, () => {
-  console.log(`Server is running on {${process.env.PORT}}.`);
+  console.log(`Server is running on port ${process.env.PORT}...`);
 });
