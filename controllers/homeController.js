@@ -1,14 +1,13 @@
-module.exports = {
-  getIndex: (req, res) => {
-    res.render("index");
-  },
-  getLaunch: (req, res) => {
-    res.render("launch");
-  },
-  getLogin: (req, res) => {
-    res.render("login");
-  },
-  // postLogin: (req, res) => {
-  //   res.render("index");
-  // },
+const passport = require("passport");
+const validator = require("validator");
+const User = require("../models/UserModel");
+
+exports.getIndex = (req, res) => {
+  if (req.user) {
+    console.log(`${req.user} is logged in`);
+    return res.redirect("/launch");
+  }
+  res.render("index", {
+    title: "Home",
+  });
 };
