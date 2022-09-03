@@ -1,3 +1,4 @@
+const { json } = require("express");
 const passport = require("passport");
 const validator = require("validator");
 const User = require("../models/UserModel");
@@ -136,16 +137,15 @@ exports.postLogin = (req, res, next) => {
 };
 
 // destroys the current user session
-// redirect /
+// redirect
 // destroys current session information
 exports.logout = (req, res) => {
-  req.logout(() => {
-    console.log(`${req.user} has logged out.`);
-  });
   req.session.destroy((err) => {
-    if (err)
+    if (err) {
       console.log("Error : Failed to destroy the session during logout.", err);
-    req.user = null;
+    }
+  });
+  req.logout(() => {
     res.redirect("/");
   });
 };
