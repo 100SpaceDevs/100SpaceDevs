@@ -145,6 +145,18 @@
   transition: all 400ms ease;
 }
 
+.acc-input--value {
+  color: var(--text-color);
+  border-color: var(--text-color);
+}
+
+.acc-input__label--value {
+  top: -21px;
+  background-color: var(--secondBg-color);
+  color: var(--text-color);
+  transition: all 400ms ease;
+}
+
 .acc-input:focus {
   background-color: rgba(17, 21, 28, 0.3);
   color: var(--text-color);
