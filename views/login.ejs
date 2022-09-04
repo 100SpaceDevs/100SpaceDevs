@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-    
-    <% if (locals.messages) { %>
-        <% if (locals.messages.errors) { %>
-            <% messages.errors.forEach( el => { %>
-                <div class="alert alert-danger"><%= el.msg %></div>
-            <% }) %>    
-        <% } %>
-        <% if (locals.messages.info) { %>
-            <% messages.info.forEach( el => { %>
-                <div class="alert alert-danger"><%= el.msg %></div>
-            <% }) %>    
-        <% } %>
-    <% } %>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><% title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Palanquin:wght@700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/5a51695694.js"
+      crossorigin="anonymous"
+    ></script>
+    <link href="css/theme.css" rel="stylesheet" type="text/css" />
+    <link href="css/global.css" rel="stylesheet" type="text/css" />
+    <link href="css/general.css" rel="stylesheet" type="text/css" />
+    <link href="css/header.css" rel="stylesheet" type="text/css" />
+    <link href="css/footer.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <%- include("header") %> <% if (locals.messages) { %> <% if
+    (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+    <div class="alert alert-danger"><%= el.msg %></div>
+    <% }) %> <% } %> <% if (locals.messages.info) { %> <% messages.info.forEach(
+    el => { %>
+    <div class="alert alert-danger"><%= el.msg %></div>
+    <% }) %> <% } %> <% } %>
     <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
+      <div class="input-wrapper">
+        <input type="email" name="email" placeholder="Email" />
+      </div>
+      <div class="input-wrapper">
+        <input type="password" name="password" placeholder="Password" />
+      </div>
+      <input type="submit" />
     </form>
-</body>
+  </body>
 </html>

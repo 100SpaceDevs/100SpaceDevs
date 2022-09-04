@@ -1,9 +1,41 @@
 :root {
-  --bg-color: "";
-  --invBg-color: "";
-  --text-color: "";
-  --invTxt-color: "";
-  --main-fnt: "" sans-serif;
-  --head-fnt: "" sans-serif;
-  --reg-size: ;
+  --bg-color: #11151c;
+  --secondBg-color: #212d40;
+  --thirdBg-color: #364156;
+  --fourthBg-color: #7d4e57;
+  --fifthBg-color: #d66853;
+  --text-color: #f1faee;
+  --invTxt-color: #11151c;
+  --greyTxt-color: #e5e5e5;
+  --border-color: #364156;
+  --main-fnt: "Roboto", sans-serif;
+  --head-fnt: "Palanquin", sans-serif;
+  --fnt-weight-1: 400;
+  --fnt-weight-2: 700;
+  --reg-size: 1rem;
+  --caption: 0.8rem;
+  --header-1: 2rem;
+  --header-2: 1.5rem;
+  --header-3: 1.3rem;
+  --header-4: 1rem;
+  --iphone-SE: 320px;
+  --galaxyNote: 360px;
+  --pixel2: 414px;
+  --iPad: 768px;
+  --iPadPro: 1024px;
+  --laptopSM: 1280px;
+  --desktopSM: 1366px;
+  --laptopMed: 1440px;
+  --desktopMed: 1680px;
+  --desktopLg: 1920px;
+  --desktopXLg: 2560px;
+  ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+[data-theme="dark"] {
 }

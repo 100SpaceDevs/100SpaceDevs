@@ -9,3 +9,63 @@
 
 .btn-logout {
 }
+
+.flex-1 {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 1rem;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.form__heading {
+  font-family: var(--head-fnt);
+  font-size: var(--header-2);
+  color: var(--text-color);
+  font-weight: var(--fnt-weight-2);
+}
+
+@media screen and (min-width: 0px) {
+  .max-wrapper {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+  .form-container {
+    width: 100%;
+    background-color: var(--secondBg-color);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .form-container {
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    width: 650px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .max-wrapper {
+    max-width: var(--laptopSM);
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .max-wrapper {
+    max-width: var(--desktopSM);
+  }
+}

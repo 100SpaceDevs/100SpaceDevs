@@ -8,6 +8,7 @@ exports.getIndex = (req, res) => {
     return res.redirect("/launch");
   }
   res.render("index", {
-    title: "Home",
+    title: "100SpaceDevs - An informational SpaceX App",
+    loggedIn: req.user ? true : false,
   });
 };

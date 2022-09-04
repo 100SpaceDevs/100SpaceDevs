@@ -1,0 +1,27 @@
+<header class="header">
+  <div class="max-wrapper">
+    <div class="flex-1">
+      <div class="logo-wrapper">
+        <h1 class="logo-title">
+          <i class="fa-solid fa-rocket"></i>
+        </h1>
+        <a class="logo__link" href="/"></a>
+      </div>
+      <nav class="nav">
+        <ul class="nav__list">
+          <% if(loggedIn) { %>
+          <li class="nl__item"></li>
+          <li class="nl__item nl__item--acc-links">logout</li>
+          <% } else { %>
+          <li class="nl__item nl__item--acc-links">
+            <a href="/login"> Login </a>
+          </li>
+          <li class="nl__item nl__item--acc-links">
+            <a href="/signup"> Register </a>
+          </li>
+          <% } %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

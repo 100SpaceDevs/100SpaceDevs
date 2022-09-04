@@ -17,8 +17,10 @@ exports.getLogin = (req, res) => {
     console.log(`${req.user} is logged in`);
     return res.redirect("/launch");
   }
+
   res.render("login", {
     title: "Login",
+    loggedIn: req.user ? true : false,
   });
 };
 
@@ -31,6 +33,7 @@ exports.getSignup = (req, res) => {
   }
   res.render("signup", {
     title: "Create Account",
+    loggedIn: req.user ? true : false,
   });
 };
 

@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -20,7 +21,8 @@ connectDB();
 
 app.set("view engine", "ejs"); // tells the browser we will be using ejs to render
 
-app.use(express.static("public")); // static pages are accessible through the public folder
+console.log(__dirname);
+app.use("/", express.static(path.join(__dirname + "/public"))); // static pages are accessible through the public folder
 
 app.use(express.urlencoded({ extended: true }));
 
