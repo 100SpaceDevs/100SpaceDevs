@@ -42,6 +42,11 @@
   padding: 1rem;
 }
 
+.form-logo-wrapper {
+  padding-top: 2rem;
+  padding-bottom: 1.2rem;
+}
+
 .form__heading {
   font-family: var(--head-fnt);
   font-size: var(--header-2);
@@ -67,15 +72,36 @@
   font-size: var(--reg-size);
   border: 2px solid var(--thirdBg-color);
   border-radius: 7px;
-  background-color: rgba(17, 21, 28, 0.3);
+  background-color: var(--secondBg-color);
   padding: 0 0.5rem;
+  transition: all 400ms ease;
 }
 
 .acc-input__label {
   display: inline-block;
   position: absolute;
+  top: 7px;
   left: 10px;
   pointer-events: none;
+  color: var(--bg-color);
+  font-size: var(--caption);
+  font-family: var(--head-fnt);
+  font-weight: var(--fnt-weight-2);
+  background-color: var(--secondBg-color);
+  padding: 0 0.4rem;
+  transition: all 400ms ease;
+}
+
+.acc-input:focus {
+  background-color: rgba(17, 21, 28, 0.3);
+  color: var(--text-color);
+}
+
+.acc-input:focus ~ .acc-input__label {
+  top: -21px;
+  background-color: var(--secondBg-color);
+  color: var(--text-color);
+  transition: all 400ms ease;
 }
 
 @media screen and (min-width: 0px) {
@@ -88,14 +114,16 @@
   .form-container {
     width: 100%;
     background-color: var(--secondBg-color);
+    min-height: 100vh;
   }
 }
 
 @media screen and (min-width: 768px) {
   .form-container {
-    border-radius: 5px;
+    border-radius: 15px;
     border: 1px solid var(--border-color);
-    width: 650px;
+    width: 450px;
+    min-height: 450px;
     margin: 0 auto;
   }
 }

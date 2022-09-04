@@ -22,25 +22,33 @@
     <link href="css/footer.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+    <%- include("header") %> <% if (locals.messages) { %> <% if
+    (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+    <div class="alert alert-danger"><%= el.msg %></div>
+    <% }) %> <% } %> <% if (locals.messages.info) { %> <% messages.info.forEach(
+    el => { %>
+    <div class="alert alert-danger"><%= el.msg %></div>
+    <% }) %> <% } %> <% } %>
     <section class="page-wrapper">
-      <%- include("header") %> <% if (locals.messages) { %> <% if
-      (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
-      <div class="alert alert-danger"><%= el.msg %></div>
-      <% }) %> <% } %> <% if (locals.messages.info) { %> <%
-      messages.info.forEach( el => { %>
-      <div class="alert alert-danger"><%= el.msg %></div>
-      <% }) %> <% } %> <% } %>
-      <form class="form-container" action="/login" method="POST">
-        <div class="input-wrapper">
-          <input class="acc-input" type="email" name="email" />
-          <label class="acc-input__label">Email</label>
-        </div>
-        <div class="input-wrapper">
-          <input class="acc-input" type="password" name="password" />
-          <label class="acc-input__label">Password</label>
-        </div>
-        <input type="submit" />
-      </form>
+      <div class="flex-2">
+        <form class="form-container" action="/login" method="POST">
+          <div class="form-logo-wrapper">
+            <h2 class="form__logo">
+              <i class="fa-solid fa-rocket"></i>
+            </h2>
+          </div>
+          <h2 class="form__heading">Welcome back astronaut!</h2>
+          <div class="input-wrapper">
+            <input class="acc-input" type="email" name="email" />
+            <label class="acc-input__label">Email</label>
+          </div>
+          <div class="input-wrapper">
+            <input class="acc-input" type="password" name="password" />
+            <label class="acc-input__label">Password</label>
+          </div>
+          <input type="submit" />
+        </form>
+      </div>
     </section>
   </body>
 </html>
