@@ -22,21 +22,25 @@
     <link href="css/footer.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <%- include("header") %> <% if (locals.messages) { %> <% if
-    (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
-    <div class="alert alert-danger"><%= el.msg %></div>
-    <% }) %> <% } %> <% if (locals.messages.info) { %> <% messages.info.forEach(
-    el => { %>
-    <div class="alert alert-danger"><%= el.msg %></div>
-    <% }) %> <% } %> <% } %>
-    <form action="/login" method="POST">
-      <div class="input-wrapper">
-        <input type="email" name="email" placeholder="Email" />
-      </div>
-      <div class="input-wrapper">
-        <input type="password" name="password" placeholder="Password" />
-      </div>
-      <input type="submit" />
-    </form>
+    <section class="page-wrapper">
+      <%- include("header") %> <% if (locals.messages) { %> <% if
+      (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+      <div class="alert alert-danger"><%= el.msg %></div>
+      <% }) %> <% } %> <% if (locals.messages.info) { %> <%
+      messages.info.forEach( el => { %>
+      <div class="alert alert-danger"><%= el.msg %></div>
+      <% }) %> <% } %> <% } %>
+      <form class="form-container" action="/login" method="POST">
+        <div class="input-wrapper">
+          <input class="acc-input" type="email" name="email" />
+          <label class="acc-input__label">Email</label>
+        </div>
+        <div class="input-wrapper">
+          <input class="acc-input" type="password" name="password" />
+          <label class="acc-input__label">Password</label>
+        </div>
+        <input type="submit" />
+      </form>
+    </section>
   </body>
 </html>

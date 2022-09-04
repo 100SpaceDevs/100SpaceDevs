@@ -27,3 +27,8 @@ button {
 li {
   list-style: none;
 }
+
+input {
+  border: none;
+  background-color: transparent;
+}

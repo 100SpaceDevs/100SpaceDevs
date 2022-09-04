@@ -22,21 +22,34 @@
     <link href="css/footer.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <%- include("header") %> <% if (locals.messages) { %> <% if
-    (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
-    <div class="alert alert-danger"><%= el.msg %></div>
-    <% }) %> <% } %> <% } %>
-    <form class="form-container" action="/signup" method="POST">
-      <h2 class="form__heading">Let's make a ship!</h2>
-      <input type="text" name="userName" placeholder="User Name" />
-      <input type="email" name="email" placeholder="Email" />
-      <input type="password" name="password" placeholder="Password" />
-      <input
-        type="password"
-        name="confirmPassword"
-        placeholder="Confirm Password"
-      />
-      <input type="submit" />
-    </form>
+    <section class="page-wrapper">
+      <%- include("header") %> <% if (locals.messages) { %> <% if
+      (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+      <div class="alert alert-danger"><%= el.msg %></div>
+      <% }) %> <% } %> <% } %>
+      <div class="flex-2">
+        <form class="form-container" action="/signup" method="POST">
+          <h2 class="form__heading">Let's make a ship!</h2>
+          <div class="input-wrapper">
+            <label class="acc-input__label">Username</label>
+            <input class="acc-input" type="text" name="userName" />
+          </div>
+          <div class="input-wrapper">
+            <label>Email</label>
+            <input class="acc-input" type="email" name="email" />
+          </div>
+          <div class="input-wrapper">
+            <label>Password</label>
+            <input class="acc-input" type="password" name="password" />
+          </div>
+          <div class="input-wrapper">
+            <label>Confirm Password</label>
+            <input class="acc-input" type="password" name="confirmPassword" />
+          </div>
+
+          <input type="submit" />
+        </form>
+      </div>
+    </section>
   </body>
 </html>
