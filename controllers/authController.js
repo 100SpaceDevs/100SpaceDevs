@@ -114,9 +114,6 @@ exports.getSignup = (req, res) => {
     })(req, res, next)
 }
   
-  
-
-  
 // destroys the current user session
 // redirect /
 // destroys current session information
