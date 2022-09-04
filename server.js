@@ -7,17 +7,16 @@ const MongoStore = require("connect-mongo");
 const connectDB = require("./config/database");
 const logger = require("morgan");
 const homeRoutes = require("./routes/homeRoutes");
-const shipsRoutes = require("./routes/shipsRoutes")
-const flash = require('express-flash')
+const shipsRoutes = require("./routes/shipsRoutes");
+const launchRoutes = require("./routes/launchRoutes");
+const flash = require("express-flash");
 
 // CONFIG PATHS
 require("dotenv").config({ path: "./config/.env" });
 // Passport config
-require('./config/passport')(passport)
-
+require("./config/passport")(passport);
 
 connectDB();
-
 
 app.set("view engine", "ejs"); // tells the browser we will be using ejs to render
 
@@ -36,12 +35,11 @@ app.use(
     saveUninitialized: false,
     store: MongoStore.create({
       mongoUrl: process.env.DB_STRING,
-
     }),
   })
 );
 
-app.use(flash())
+app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -49,7 +47,8 @@ app.use(passport.session());
 //Routes
 app.use("/", homeRoutes);
 app.use("/ships", shipsRoutes);
+app.use("/launch", launchRoutes);
 
 app.listen(process.env.PORT, () => {
-  console.log(`Server is running on {${process.env.PORT}}.`);
+  console.log(`Server is running on port ${process.env.PORT}...`);
 });
