@@ -35,20 +35,31 @@
           <div class="form-logo-wrapper">
             <h2 class="form__logo">
               <i class="fa-solid fa-rocket"></i>
+              <a href="/" class="form__link"></a>
             </h2>
           </div>
           <h2 class="form__heading">Welcome back astronaut!</h2>
           <div class="input-wrapper">
-            <input class="acc-input" type="email" name="email" />
-            <label class="acc-input__label">Email</label>
+            <input id="email" class="acc-input" type="email" name="email" />
+            <label for="email" class="acc-input__label">Email</label>
           </div>
           <div class="input-wrapper">
-            <input class="acc-input" type="password" name="password" />
-            <label class="acc-input__label">Password</label>
+            <input
+              id="password"
+              class="acc-input"
+              type="password"
+              name="password"
+            />
+            <label for="password" class="acc-input__label">Password</label>
           </div>
-          <input type="submit" />
+          <input type="submit" class="btn acc-btn" placeholder="Submit" />
+          <p class="form__desc">
+            Don't have an account?
+            <a>Register here</a>
+          </p>
         </form>
       </div>
     </section>
+    <script src="js/accForm.js" type="text/javascript"></script>
   </body>
 </html>

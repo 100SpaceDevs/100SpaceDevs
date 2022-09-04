@@ -2,12 +2,28 @@
 
 .btn {
   border: none;
-  color: var(--text-color);
+  color: var(--greyTxt-color);
   background-color: transparent;
   padding: 0.5rem 1.2rem;
 }
 
 .btn-logout {
+}
+
+.acc-btn {
+  color: var(--text-hover-1);
+  padding: 0.55rem 1.2rem;
+  background-color: var(--bg-color);
+  border-radius: 7px;
+  border: 2px solid var(--thirdBg-color);
+  margin: 1.2rem 0;
+  transition: all 400ms ease;
+}
+
+.acc-btn:hover {
+  background-color: var(--secondBg-color);
+  color: var(--text-color);
+  border-color: var(--text-color);
 }
 
 .flex-1 {
@@ -47,14 +63,49 @@
   padding-bottom: 1.2rem;
 }
 
+.form__logo {
+  position: relative;
+  color: var(--greyTxt-color);
+  transition: all 400ms ease;
+}
+
+.form__logo:hover {
+  color: var(--text-color);
+}
+
+.form__link {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .form__heading {
   font-family: var(--head-fnt);
-  font-size: var(--header-2);
   color: var(--text-color);
   font-weight: var(--fnt-weight-2);
   width: 100%;
   padding: 1rem 0;
   text-align: center;
+}
+
+.form__desc {
+  font-size: var(--reg-size);
+  color: var(--invTxt-color);
+  padding: 1rem 0;
+}
+
+.form__desc > a {
+  display: inline-block;
+  font-size: var(--reg-size);
+  cursor: pointer;
+  transition: all 400ms ease;
+}
+
+.form__desc > a:hover {
+  color: var(--text-color);
 }
 
 .input-wrapper {
@@ -63,7 +114,9 @@
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  margin: 1.5rem auto;
+  margin: 0 auto;
+  margin-top: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .acc-input {
