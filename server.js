@@ -9,7 +9,6 @@ const connectDB = require("./config/database");
 const logger = require("morgan");
 const homeRoutes = require("./routes/homeRoutes");
 const shipProfileRoutes = require("./routes/shipProfileRoutes");
-const shipsRoutes = require("./routes/shipsRoutes");
 const launchRoutes = require("./routes/launchRoutes");
 const flash = require("express-flash");
 
@@ -49,7 +48,6 @@ app.use(passport.session());
 //Routes
 
 app.use("/shipProfile", shipProfileRoutes);
-app.use("/ships", shipsRoutes);
 app.use("/launch", launchRoutes);
 app.use("/", homeRoutes);
 

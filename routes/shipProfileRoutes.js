@@ -6,6 +6,6 @@ router.get("/", shipProfileController.getUserProfile);
 
 router.post("/", shipProfileController.postShip);
 
-router.put("/", shipProfileController.putShip);
+// router.put("/", shipProfileController.putShip);
 
 module.exports = router;

@@ -10,7 +10,7 @@ const shipProfileSchema = new mongoose.Schema({
     required: true,
   },
   userId: {
-    type: ObjectID,
+    type: String,
     required: true,
   },
 });
