@@ -8,6 +8,7 @@ const MongoStore = require("connect-mongo");
 const connectDB = require("./config/database");
 const logger = require("morgan");
 const homeRoutes = require("./routes/homeRoutes");
+const shipProfileRoutes = require("./routes/shipProfileRoutes");
 const shipsRoutes = require("./routes/shipsRoutes");
 const launchRoutes = require("./routes/launchRoutes");
 const flash = require("express-flash");
@@ -21,8 +22,7 @@ connectDB();
 
 app.set("view engine", "ejs"); // tells the browser we will be using ejs to render
 
-console.log(__dirname);
-app.use("/", express.static(path.join(__dirname + "/public"))); // static pages are accessible through the public folder
+app.use(express.static(__dirname + "/public")); // static pages are accessible through the public folder
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -48,8 +48,15 @@ app.use(passport.session());
 
 //Routes
 app.use("/", homeRoutes);
+app.use("/shipProfile", shipProfileRoutes);
 app.use("/ships", shipsRoutes);
 app.use("/launch", launchRoutes);
+
+app.use(flash());
+
+//Routes
+app.use("/", homeRoutes);
+app.use("/ships", shipsRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}...`);
