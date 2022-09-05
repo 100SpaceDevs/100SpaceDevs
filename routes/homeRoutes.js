@@ -1,10 +1,9 @@
-
 const express = require('express')
 const router = express.Router()
 const authController = require('../controllers/authController') 
 const homeController = require('../controllers/homeController')
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
-
+// Routes //
 router.get('/', homeController.getIndex)
 router.get('/login', authController.getLogin)
 router.post('/login', authController.postLogin)
