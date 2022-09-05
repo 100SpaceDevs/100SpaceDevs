@@ -1,0 +1,67 @@
+@import "../css/theme.css";
+
+.launch-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column-reverse;
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 80px);
+}
+
+.air {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: calc(100vh - 100px);
+  flex-grow: 1;
+  overflow-y: hidden;
+}
+
+.floor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  background-color: var(--secondBg-color);
+}
+
+.image-wrapper {
+  position: relative;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  background-color: var(--fifthBg-color);
+}
+
+.exhaust {
+  position: absolute;
+  bottom: -150%;
+  right: -55%;
+  font-size: var(--header-2);
+  transform: rotate(90deg);
+  color: transparent;
+  text-shadow: 0 0 20px #f1faee;
+  opacity: 1;
+}
+
+@media screen and (min-width: 0px) {
+  .image-wrapper {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .image-wrapper {
+  }
+}
+
+@media screen and (min-width: 1280px) {
+}
