@@ -2,7 +2,6 @@ let slideIndex = 1;
 showSlides(slideIndex);
 
 // Next/previous controls
-//
 
 // let prevArrow = document.querySelector(`.prev[data-prev="${190.keyCode}"`)
 // let nextArrow = document.querySelector(`.next[data-next="${188.keyCode}"`)
