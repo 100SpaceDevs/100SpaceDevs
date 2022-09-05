@@ -55,7 +55,7 @@
   width: auto;
   margin: 20px 20px;
   padding: 16px;
-  color: #ffc600;
+  color: var(--fifthBg-color);
   font-weight: bold;
   font-size: 32px;
   transition: 0.6s ease;
