@@ -21,6 +21,7 @@
     <link href="css/header.css" rel="stylesheet" type="text/css" />
     <link href="css/footer.css" rel="stylesheet" type="text/css" />
     <link href="css/launch.css" rel="stylesheet" type="text/css" />
+    <link href="css/stars.css" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
@@ -29,11 +30,12 @@
       <div class="flex-2">
         <div class="launch-wrapper">
           <div class="floor">
-            <button class="btn">Launch</button>
+            <button class="btn btn-launch">Launch</button>
           </div>
           <div class="air">
+            <%- include('starry_field') %>
             <div class="image-wrapper">
-              <div class="image"></div>
+              <img class="space-image" src="img/Falcon 1.png" />
               <p class="exhaust">
                 We are about to launch in here!!!dfgsdgdsgfsregs
               </p>
