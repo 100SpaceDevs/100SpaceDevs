@@ -1,29 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-    
-    <% if (locals.messages) { %>
-        <% if (locals.messages.errors) { %>
-            <% messages.errors.forEach( el => { %>
-                <div class="alert alert-danger"><%= el.msg %></div>
-            <% }) %>    
-        <% } %>
-        <% if (locals.messages.info) { %>
-            <% messages.info.forEach( el => { %>
-                <div class="alert alert-danger"><%= el.msg %></div>
-            <% }) %>    
-        <% } %>
-    <% } %>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
-    </form>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><% title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Palanquin:wght@700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/5a51695694.js"
+      crossorigin="anonymous"
+    ></script>
+    <link href="css/theme.css" rel="stylesheet" type="text/css" />
+    <link href="css/global.css" rel="stylesheet" type="text/css" />
+    <link href="css/general.css" rel="stylesheet" type="text/css" />
+    <link href="css/header.css" rel="stylesheet" type="text/css" />
+    <link href="css/footer.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <%- include("header") %> <% if (locals.messages) { %> <% if
+    (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+    <div class="alert alert-danger"><%= el.msg %></div>
+    <% }) %> <% } %> <% if (locals.messages.info) { %> <% messages.info.forEach(
+    el => { %>
+    <div class="alert alert-danger"><%= el.msg %></div>
+    <% }) %> <% } %> <% } %>
+    <section class="page-wrapper">
+      <div class="flex-2">
+        <form class="form-container" action="/login" method="POST">
+          <div class="form-logo-wrapper">
+            <h2 class="form__logo">
+              <i class="fa-solid fa-rocket"></i>
+              <a href="/" class="form__link"></a>
+            </h2>
+          </div>
+          <h2 class="form__heading">Welcome back astronaut!</h2>
+          <div class="input-wrapper">
+            <input id="email" class="acc-input" type="email" name="email" />
+            <label for="email" class="acc-input__label">Email</label>
+          </div>
+          <div class="input-wrapper">
+            <input
+              id="password"
+              class="acc-input"
+              type="password"
+              name="password"
+            />
+            <label for="password" class="acc-input__label">Password</label>
+          </div>
+          <input type="submit" class="btn acc-btn" placeholder="Submit" />
+          <p class="form__desc">
+            Don't have an account?
+            <a>Register here</a>
+          </p>
+        </form>
+      </div>
+    </section>
+    <script src="js/accForm.js" type="text/javascript"></script>
+  </body>
 </html>

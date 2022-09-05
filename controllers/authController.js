@@ -1,3 +1,4 @@
+const { json } = require("express");
 const passport = require("passport");
 const validator = require("validator");
 const User = require("../models/UserModel");
@@ -16,8 +17,10 @@ exports.getLogin = (req, res) => {
     console.log(`${req.user} is logged in`);
     return res.redirect("/launch");
   }
+
   res.render("login", {
     title: "Login",
+    loggedIn: req.user ? true : false,
   });
 };
 
@@ -30,6 +33,7 @@ exports.getSignup = (req, res) => {
   }
   res.render("signup", {
     title: "Create Account",
+    loggedIn: req.user ? true : false,
   });
 };
 
@@ -42,6 +46,8 @@ exports.getSignup = (req, res) => {
 // send a post request to the database with the information entered on the signup page
 // redirect to /launch with the user information
 exports.postSignup = (req, res, next) => {
+  console.log(req.body.password, req.body.confirmPassword);
+
   const validationErrors = [];
   if (!validator.isEmail(req.body.email))
     validationErrors.push({ msg: "Please enter a valid email address." });
@@ -136,16 +142,15 @@ exports.postLogin = (req, res, next) => {
 };
 
 // destroys the current user session
-// redirect /
+// redirect
 // destroys current session information
 exports.logout = (req, res) => {
-  req.logout(() => {
-    console.log(`${req.user} has logged out.`);
-  });
   req.session.destroy((err) => {
-    if (err)
+    if (err) {
       console.log("Error : Failed to destroy the session during logout.", err);
-    req.user = null;
+    }
+  });
+  req.logout(() => {
     res.redirect("/");
   });
 };

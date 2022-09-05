@@ -1,0 +1,11 @@
+.login-section {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 1rem;
+}
+
+@media screen and (min-width: 320px) {
+}
+
+@media screen and (min-width: 1280px) {
+}
