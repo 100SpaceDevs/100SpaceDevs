@@ -20,6 +20,18 @@
   border-radius: 50%;
 }
 
+.stars-p--hide {
+  display: none;
+}
+
+.stars-t--hide {
+  display: none;
+}
+
+.stars-tp--hide {
+  display: none;
+}
+
 .star-1-m {
   top: 90px;
   left: 100px;
@@ -128,6 +140,9 @@
 }
 
 @media screen and (min-width: 414px) {
+  .stars-p--hide {
+    display: block;
+  }
   .star-22-p {
     top: 300px;
     left: 200px;
@@ -144,7 +159,89 @@
     top: 300px;
     left: 200px;
   }
+
+  .star-26-p {
+    top: 200px;
+    left: 200px;
+  }
+  .star-27-p {
+    top: 270px;
+    right: 150px;
+  }
+  .star-28-p {
+    top: 120px;
+    left: 240px;
+  }
+
+  .star-29-t {
+    top: 250px;
+    left: 300px;
+  }
+
+  .star-30-t {
+    top: 330px;
+    left: 320px;
+  }
+
+  .star-31-t {
+    top: 160px;
+    right: 200px;
+  }
 }
 
 @media screen and (min-width: 768px) {
+  .stars-t--hide {
+    display: block;
+  }
+
+  .star-32-t {
+    top: 200px;
+    right: 340px;
+  }
+
+  .star-33-t {
+    top: 160px;
+    right: 400px;
+  }
+
+  .star-34-t {
+    top: 110px;
+    left: 420px;
+  }
+
+  .star-35-t {
+    top: 75px;
+    left: 300px;
+  }
+
+  .star-36-t {
+    top: 400px;
+    right: 300px;
+  }
+
+  .star-37-t {
+    top: 370px;
+    right: 220px;
+  }
+
+  .star-38-t {
+    top: 320px;
+    right: 270px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .stars-tp--hide {
+    display: block;
+  }
+
+  .star-39-tp {
+    top: 400px;
+    left: 320px;
+  }
+
+  .star-40-tp {
+    top: 400px;
+    left: 300px;
+  }
 }

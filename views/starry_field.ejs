@@ -2,8 +2,12 @@
   <div class="starry-wrapper">
     <% for(let i=0; i < 50; i++) { %> <% if(i < 22) { %>
     <div class="stars star-<%=i%>-m"></div>
-    <% } else if(i < 30) { %>
-    <div class="stars star-<%=i%>-p"></div>
-    <% } %> <% } %>
+    <% } else if(i < 29) { %>
+    <div class="stars stars-p--hide star-<%=i%>-p"></div>
+    <% } else if(i < 40) { %>
+    <div class="stars stars-t--hide star-<%=i%>-t"></div>
+    <% } else if(i < 50) {%>
+    <div class="stars stars-tp--hide star-<%=i%>-tp"></div>
+    <% }%> <% } %>
   </div>
 </div>
