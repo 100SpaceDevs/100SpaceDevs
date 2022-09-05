@@ -47,16 +47,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //Routes
-app.use("/", homeRoutes);
+
 app.use("/shipProfile", shipProfileRoutes);
 app.use("/ships", shipsRoutes);
 app.use("/launch", launchRoutes);
-
-app.use(flash());
-
-//Routes
 app.use("/", homeRoutes);
-app.use("/ships", shipsRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}...`);
