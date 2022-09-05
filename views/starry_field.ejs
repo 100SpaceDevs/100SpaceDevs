@@ -1,0 +1,9 @@
+<div class="starry-field">
+  <div class="starry-wrapper">
+    <% for(let i=0; i < 50; i++) { %> <% if(i < 22) { %>
+    <div class="stars star-<%=i%>-m"></div>
+    <% } else if(i < 30) { %>
+    <div class="stars star-<%=i%>-p"></div>
+    <% } %> <% } %>
+  </div>
+</div>

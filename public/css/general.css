@@ -12,9 +12,6 @@
   transition: all 400ms ease;
 }
 
-.btn-logout {
-}
-
 .acc-btn {
   color: var(--text-hover-1);
   padding: 0.55rem 1.2rem;
