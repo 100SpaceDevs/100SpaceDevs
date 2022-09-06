@@ -46,8 +46,6 @@ exports.getSignup = (req, res) => {
 // send a post request to the database with the information entered on the signup page
 // redirect to /launch with the user information
 exports.postSignup = (req, res, next) => {
-  console.log(req.body.password, req.body.confirmPassword);
-
   const validationErrors = [];
   if (!validator.isEmail(req.body.email))
     validationErrors.push({ msg: "Please enter a valid email address." });
@@ -72,12 +70,16 @@ exports.postSignup = (req, res, next) => {
     password: req.body.password,
   });
 
+  console.log(req.body);
+
   User.findOne(
     { $or: [{ email: req.body.email }, { userName: req.body.userName }] },
     (err, existingUser) => {
       if (err) {
         return next(err);
       }
+
+      console.log(existingUser);
       if (existingUser) {
         req.flash("errors", {
           msg: "Account with that email address or username already exists.",
