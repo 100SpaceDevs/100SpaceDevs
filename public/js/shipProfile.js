@@ -18,11 +18,6 @@ async function fetchLaunch() {
   })
     .then((res) => res.json())
     .then((data) => console.log(data))
-    // console.log(data);
-    // const launchPic = data.links.flickr.original[3];
-    // console.log(launchPic);
-    // launchPhoto.src = launchPic;
-
     .catch((err) => console.log(err));
 }
 fetchLaunch();
