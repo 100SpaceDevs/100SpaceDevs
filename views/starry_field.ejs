@@ -1,9 +1,33 @@
 <div class="starry-field">
   <div class="starry-wrapper">
-    <% for(let i=0; i < 50; i++) { %> <% if(i < 22) { %>
+    <div class="star-string-wrap ssw-1">
+      <div class="star-string"></div>
+    </div>
+    <div class="star-string-wrap ssw-2">
+      <div class="star-string"></div>
+    </div>
+    <div class="star-string-wrap ssw-3">
+      <div class="star-string"></div>
+    </div>
+    <div class="star-string-wrap ssw-4">
+      <div class="star-string"></div>
+    </div>
+    <div class="star-string-wrap ssw-5">
+      <div class="star-string"></div>
+    </div>
+    <div class="star-string-wrap ssw-6">
+      <div class="star-string"></div>
+    </div>
+    <% for(let i=0; i < 61; i++) { %> <% if(i < 22) { %>
     <div class="stars star-<%=i%>-m"></div>
-    <% } else if(i < 30) { %>
-    <div class="stars star-<%=i%>-p"></div>
-    <% } %> <% } %>
+    <% } else if(i < 29) { %>
+    <div class="stars stars-p--hide star-<%=i%>-p"></div>
+    <% } else if(i < 40) { %>
+    <div class="stars stars-t--hide star-<%=i%>-t"></div>
+    <% } else if(i < 48) { %>
+    <div class="stars stars-tp--hide star-<%=i%>-tp"></div>
+    <% } else if(i < 61) { %>
+    <div class="stars stars-d--hide star-<%=i%>-d"></div>
+    <% }%> <% } %>
   </div>
 </div>

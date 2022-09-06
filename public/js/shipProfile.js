@@ -27,50 +27,10 @@ async function fetcher(id) {
     },
   })
     .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      const falcon1Img = data[13].links.flickr.original[1];
-      const falcon9Img = data[44].links.flickr.original[1];
-      launchPhoto.src = falcon1Img;
-    });
-  // console.log(data);
-  // const launchPic = data.links.flickr.original[3];
-  // console.log(launchPic);
-  // launchPhoto.src = launchPic;
-  // console.log("Response:", response);
-  // fetchRocket();
+    .then((data) => console.log(data))
+    .catch((err) => console.log(err));
 }
-
-async function fetchLaunch() {
-  try {
-    fetcher("");
-    fetcher("5eb87ce4ffd86e000604b337");
-    // const response = await fetch("https://api.spacexdata.com/v5/launches/", {
-    //   method: "GET",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     const falcon1Img = data[13].links.flickr.original[1];
-    //     const falcon9Img = data[44].links.flickr.original[1];
-    //     launchPhoto.src = falcon1Img;
-    //   });
-    // // console.log(data);
-    // // const launchPic = data.links.flickr.original[3];
-    // // console.log(launchPic);
-    // // launchPhoto.src = launchPic;
-    // // console.log("Response:", response);
-    // fetchRocket();
-  } catch (err) {
-    console.log(err);
-  }
-
-  // .catch((err) => console.log(err));
-}
-fetchLaunch();
+// fetchLaunch();
 
 async function fetchRocket(id) {
   const response = await fetch("https://api.spacexdata.com/v4/rockets", {
