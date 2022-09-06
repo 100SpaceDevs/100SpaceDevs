@@ -46,7 +46,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //Routes
-
 app.use("/shipProfile", shipProfileRoutes);
 app.use("/launch", launchRoutes);
 app.use("/", homeRoutes);

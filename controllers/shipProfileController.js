@@ -2,13 +2,16 @@ const shipProfile = require("../models/shipProfileModel");
 
 module.exports = {
   getUserProfile: (req, res) => {
-    res.render("shipProfile.ejs");
+    res.render("shipProfile.ejs", {
+      title: "Ship Select",
+      loggedIn: req.user ? true : false,
+    });
   },
 
   postShip: async (req, res) => {
     try {
       await shipProfile.findOneAndUpdate(
-        { userId: req.body.userId },
+        { userId: req.user._id },
         { shipName: req.body.shipName, shipType: req.body.shipType },
         { new: true, upsert: true }
       );
@@ -16,6 +19,7 @@ module.exports = {
     } catch (err) {
       console.log(err);
     }
+    console.log(req.body.shipName, req.body.shipType);
     res.redirect("/launch");
   },
 };

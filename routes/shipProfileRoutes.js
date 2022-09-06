@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const shipProfileController = require("../controllers/shipProfileController");
+const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
-router.get("/", shipProfileController.getUserProfile);
+router.get("/", ensureAuth, shipProfileController.getUserProfile);
 
-router.post("/", shipProfileController.postShip);
+router.post("/", ensureAuth, shipProfileController.postShip);
 
 // router.put("/", shipProfileController.putShip);
 
