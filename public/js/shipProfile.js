@@ -42,39 +42,10 @@ async function fetcher(id) {
       const falcon1_2Img = "";
       const falconB5Img = data[73].links.flickr.original[1];
       const falconHeavy = data[76].links.flickr.original[2];
-    });
+    })
+    .catch((err) => console.log(err));
 }
-
-async function fetchLaunch() {
-  try {
-    fetcher("");
-    fetcher("5eb87ce4ffd86e000604b337");
-    // const response = await fetch("https://api.spacexdata.com/v5/launches/", {
-    //   method: "GET",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     const falcon1Img = data[13].links.flickr.original[1];
-    //     const falcon9Img = data[44].links.flickr.original[1];
-    //     launchPhoto.src = falcon1Img;
-    //   });
-    // // console.log(data);
-    // // const launchPic = data.links.flickr.original[3];
-    // // console.log(launchPic);
-    // // launchPhoto.src = launchPic;
-    // // console.log("Response:", response);
-    // fetchRocket();
-  } catch (err) {
-    console.log(err);
-  }
-
-  // .catch((err) => console.log(err));
-}
-fetchLaunch();
+// fetchLaunch();
 
 const falcon1IdDesc = "5e9d0d95eda69955f709d1eb";
 const falcon1_0Desc = "5e9d0d95eda69973a809d1ec";

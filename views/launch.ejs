@@ -1,23 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><% title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Palanquin:wght@700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/5a51695694.js"
+      crossorigin="anonymous"
+    ></script>
+    <link href="css/theme.css" rel="stylesheet" type="text/css" />
+    <link href="css/global.css" rel="stylesheet" type="text/css" />
+    <link href="css/general.css" rel="stylesheet" type="text/css" />
+    <link href="css/header.css" rel="stylesheet" type="text/css" />
+    <link href="css/footer.css" rel="stylesheet" type="text/css" />
+    <link href="css/launch.css" rel="stylesheet" type="text/css" />
+    <link href="css/stars.css" rel="stylesheet" type="text/css" />
+  </head>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Launch</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-
-    <body>
-        <h1>Launch</h1>
-        <ul>
-
-        
-        <button method="POST" formaction="">Logout</button>
-
-
-        <script src="js/main.js"></script>
-    </body>
-
+  <body>
+    <%- include('header') %>
+    <section class="page-wrapper">
+      <div class="max-wrapper">
+        <div class="flex-2">
+          <div class="launch-wrapper">
+            <div class="floor">
+              <button class="btn btn-launch">YEET</button>
+            </div>
+            <div class="air">
+              <%- include('starry_field') %>
+              <div class="image-wrapper">
+                <img class="space-image" src="img/<%= shipType %>.png" />
+                <p class="exhaust">
+                  We are about to launch in here!!!dfgsdgdsgfsregs
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="js/launch.js"></script>
+    <script src="js/starryAnim.js"></script>
+  </body>
 </html>

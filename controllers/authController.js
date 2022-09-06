@@ -1,3 +1,4 @@
+const { json } = require("express");
 const passport = require("passport");
 const validator = require("validator");
 const User = require("../models/UserModel");
@@ -16,8 +17,10 @@ exports.getLogin = (req, res) => {
     console.log(`${req.user} is logged in`);
     return res.redirect("/launch");
   }
+
   res.render("login", {
     title: "Login",
+    loggedIn: req.user ? true : false,
   });
 };
 
@@ -30,6 +33,7 @@ exports.getSignup = (req, res) => {
   }
   res.render("signup", {
     title: "Create Account",
+    loggedIn: req.user ? true : false,
   });
 };
 
@@ -43,14 +47,19 @@ exports.getSignup = (req, res) => {
 // redirect to /launch with the user information
 exports.postSignup = (req, res, next) => {
   const validationErrors = [];
-  if (!validator.isEmail(req.body.email))
+  if (!validator.isEmail(req.body.email)) {
     validationErrors.push({ msg: "Please enter a valid email address." });
-  if (!validator.isLength(req.body.password, { min: 8 }))
+  }
+  if (!validator.isLength(req.body.password, { min: 8 })) {
     validationErrors.push({
       msg: "Password must be at least 8 characters long",
     });
-  if (req.body.password !== req.body.confirmPassword)
+    console.log("Password length");
+  }
+  if (req.body.password !== req.body.confirmPassword) {
     validationErrors.push({ msg: "Passwords do not match" });
+    console.log("passwords don't match");
+  }
 
   if (validationErrors.length) {
     req.flash("errors", validationErrors);
@@ -65,7 +74,6 @@ exports.postSignup = (req, res, next) => {
     email: req.body.email,
     password: req.body.password,
   });
-
   User.findOne(
     { $or: [{ email: req.body.email }, { userName: req.body.userName }] },
     (err, existingUser) => {
@@ -76,7 +84,7 @@ exports.postSignup = (req, res, next) => {
         req.flash("errors", {
           msg: "Account with that email address or username already exists.",
         });
-        return res.redirect("../signup");
+        return res.redirect("/login");
       }
       user.save((err) => {
         if (err) {
@@ -130,22 +138,24 @@ exports.postLogin = (req, res, next) => {
         return next(err);
       }
       req.flash("success", { msg: "Success! You are logged in." });
-      res.redirect(req.session.returnTo || "/");
+      res.redirect(req.session.returnTo || "/shipProfile");
     });
   })(req, res, next);
 };
 
 // destroys the current user session
-// redirect /
+// redirect
 // destroys current session information
 exports.logout = (req, res) => {
-  req.logout(() => {
-    console.log(`${req.user} has logged out.`);
-  });
   req.session.destroy((err) => {
-    if (err)
+    if (err) {
       console.log("Error : Failed to destroy the session during logout.", err);
-    req.user = null;
+    }
     res.redirect("/");
   });
+
+  // req.logout(() => {
+  //   console.log("User has logged out.");
+  // });
+  // res.redirect("/");
 };
