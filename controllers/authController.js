@@ -69,17 +69,12 @@ exports.postSignup = (req, res, next) => {
     email: req.body.email,
     password: req.body.password,
   });
-
-  console.log(req.body);
-
   User.findOne(
     { $or: [{ email: req.body.email }, { userName: req.body.userName }] },
     (err, existingUser) => {
       if (err) {
         return next(err);
       }
-
-      console.log(existingUser);
       if (existingUser) {
         req.flash("errors", {
           msg: "Account with that email address or username already exists.",
