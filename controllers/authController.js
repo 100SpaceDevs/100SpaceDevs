@@ -49,23 +49,21 @@ exports.postSignup = (req, res, next) => {
   const validationErrors = [];
   if (!validator.isEmail(req.body.email)) {
     validationErrors.push({ msg: "Please enter a valid email address." });
-    console.log("1");
   }
   if (!validator.isLength(req.body.password, { min: 8 })) {
     validationErrors.push({
       msg: "Password must be at least 8 characters long",
     });
-    console.log("2");
+    console.log("Password length");
   }
   if (req.body.password !== req.body.confirmPassword) {
     validationErrors.push({ msg: "Passwords do not match" });
-    console.log("3");
+    console.log("passwords don't match");
   }
 
   if (validationErrors.length) {
     req.flash("errors", validationErrors);
     return res.redirect("../signup");
-    console.log("4");
   }
   req.body.email = validator.normalizeEmail(req.body.email, {
     gmail_remove_dots: false,

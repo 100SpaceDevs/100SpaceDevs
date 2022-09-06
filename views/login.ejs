@@ -22,8 +22,9 @@
     <link href="css/footer.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <%- include("header") %> <% if (locals.messages) { %> <% if
-    (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+    <!-- <%- include("header") %>  -->
+    <% if (locals.messages) { %> <% if (locals.messages.errors) { %> <%
+    messages.errors.forEach( el => { %>
     <div class="alert alert-danger"><%= el.msg %></div>
     <% }) %> <% } %> <% if (locals.messages.info) { %> <% messages.info.forEach(
     el => { %>
