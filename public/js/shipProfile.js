@@ -23,7 +23,6 @@ let falcon1_1IdImg = "5eb87ce4ffd86e000604b337";
 let falcon1_2IdImg = "";
 let falconHeavyIdImg = "5eb87d2dffd86e000604b376";
 let falconB5IdIdImg = "5eb87d28ffd86e000604b373";
-// let falconImagesIdImg = [falconv1_0, falcon1_1];
 
 async function fetcher(id) {
   let url = `https://api.spacexdata.com/v5/launches/${id}`;
@@ -44,12 +43,6 @@ async function fetcher(id) {
       const falconHeavy = data[76].links.flickr.original[2];
       launchPhoto.src = falcon1Img;
     });
-  // console.log(data);
-  // const launchPic = data.links.flickr.original[3];
-  // console.log(launchPic);
-  // launchPhoto.src = launchPic;
-  // console.log("Response:", response);
-  // fetchRocket();
 }
 
 async function fetchLaunch() {
@@ -98,3 +91,5 @@ async function fetchRocket(id) {
     })
     .catch((err) => console.log(err));
 }
+
+fetchRocket();
