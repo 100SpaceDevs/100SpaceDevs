@@ -11,7 +11,8 @@ module.exports = {
         shipType: shipType[0].shipType,
       });
     } catch (err) {
-      console.log(err);
+      res.redirect(req.session.returnTo || "/shipProfile");
+      console.log("Use has no ship profile, Redirecting");
     }
   },
 };
