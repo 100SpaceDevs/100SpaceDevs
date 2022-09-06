@@ -23,8 +23,9 @@
   </head>
   <body>
     <section class="page-wrapper">
-      <%- include("header") %> <% if (locals.messages) { %> <% if
-      (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+      <!-- <%- include("header") %>  -->
+      <% if (locals.messages) { %> <% if (locals.messages.errors) { %> <%
+      messages.errors.forEach( el => { %>
       <div class="alert alert-danger"><%= el.msg %></div>
       <% }) %> <% } %> <% } %>
       <div class="flex-2">
@@ -71,7 +72,7 @@
           <input type="submit" class="btn acc-btn" placeholder="Submit" />
           <p class="form__desc">
             Already have an account?
-            <a>Login here</a>
+            <a href="/login">Login here</a>
           </p>
         </form>
       </div>

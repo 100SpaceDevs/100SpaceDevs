@@ -1,12 +1,25 @@
+const shipProfile = require("../models/shipProfileModel");
+
 module.exports = {
   getUserProfile: (req, res) => {
-    res.render("shipProfile.ejs");
+    res.render("shipProfile.ejs", {
+      title: "Ship Select",
+      loggedIn: req.user ? true : false,
+    });
   },
 
-  postShip: (req, res) => {
-    const userId = console.log(req.user);
-    return res.send("OK");
+  postShip: async (req, res) => {
+    try {
+      await shipProfile.findOneAndUpdate(
+        { userId: req.user._id },
+        { shipName: req.body.shipName, shipType: req.body.shipType },
+        { new: true, upsert: true }
+      );
+      console.log("ship created");
+    } catch (err) {
+      console.log(err);
+    }
+    console.log(req.body.shipName, req.body.shipType);
+    res.redirect("/launch");
   },
-
-  putShip: (req, res) => {},
 };
