@@ -5,31 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="css/theme.css" rel="stylesheet" type="text/css" />
-    <!-- <link href="css/global.css" rel="stylesheet" type="text/css" /> -->
+    <link href="css/global.css" rel="stylesheet" type="text/css" />
     <link href="css/general.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/hero.css" />
     <link href="css/header.css" rel="stylesheet" type="text/css" />
     <link href="css/footer.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/hero.css" />
 
     <title>User Profile</title>
   </head>
   <body class="container">
     <%- include('header') %>
     <section class="title">
-      <h1>100 Space Devs</h1>
+      <h1 class="form__heading">100 Space Devs</h1>
     </section>
     <form action="/shipProfile" method="POST" class="form__container">
-      <input
-        type="text"
-        name="shipName"
-        placeholder="Name Your Ship"
-        required
-      />
+      <div class="input-wrapper">
+        <input type="text" name="shipName" class="acc-input" required />
+        <label for="Name" class="acc-input__label" name="Ship Name"
+          >Name Your Ship</label
+        >
+      </div>
       <input id="shipTypeInput" type="hidden" name="shipType" value="Falcon1" />
       <!-- <section class="image__container"></section> -->
       <section class="hero">
-        <section id="launchInfo" class="info__container">
+        <section id="launchInfo">
           <img class="launchPhoto" src="" alt="Falcon 9 Rocket" />
         </section>
 
@@ -37,14 +37,14 @@
           <!-- Full-width images with number and caption text -->
 
           <div class="mySlides fade">
-            <h1>Falcon 1</h1>
+            <h1 class="title">Falcon 1</h1>
             <div class="ship-container">
               <img src="img/Falcon1.png" alt="Falcon 1" />
             </div>
           </div>
 
           <div class="mySlides fade">
-            <h1>Falcon Block 5</h1>
+            <h1 class="title">Falcon Block 5</h1>
             <div class="ship-container">
               <img
                 id="Falcon9Block5"
@@ -55,28 +55,28 @@
           </div>
 
           <div class="mySlides fade">
-            <h1>Falcon Heavy</h1>
+            <h1 class="title">Falcon Heavy</h1>
             <div class="ship-container">
               <img id="FalconHeavy" src="img/FalconHeavy.png" alt="falcon1" />
             </div>
           </div>
 
           <div class="mySlides fade">
-            <h1>Falcon 9 v1.0</h1>
+            <h1 class="title">Falcon 9 v1.0</h1>
             <div class="ship-container">
               <img id="FalconHeavy" src="img/Falcon9v1.0.png" alt="falcon1" />
             </div>
           </div>
 
           <div class="mySlides fade">
-            <h1>Falcon 9 v1.2</h1>
+            <h1 class="title">Falcon 9 v1.2</h1>
             <div class="ship-container">
               <img id="FalconHeavy" src="img/Falcon9v1.2.png" alt="falcon1" />
             </div>
           </div>
 
           <div class="mySlides fade">
-            <h1>Falcon 9 v1.1</h1>
+            <h1 class="title">Falcon 9 v1.1</h1>
             <div class="ship-container">
               <img id="FalconHeavy" src="img/Falcon9v1.1.png" alt="falcon1" />
             </div>
@@ -93,6 +93,7 @@
       <input
         class="btn acc-btn"
         type="submit"
+        placeholder="Submit"
         action="/shipProfile"
         method="POST"
       />
