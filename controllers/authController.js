@@ -86,7 +86,7 @@ exports.postSignup = (req, res, next) => {
           if (err) {
             return next(err);
           }
-          res.redirect("/launch");
+          res.redirect("/shipProfile");
         });
       });
     }
