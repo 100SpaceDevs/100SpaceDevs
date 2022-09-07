@@ -1,4 +1,4 @@
-const shipProfile = require("../models/shipProfileModel");
+const shipProfile = require("../models/ShipProfileModel");
 
 module.exports = {
   getUserProfile: (req, res) => {
