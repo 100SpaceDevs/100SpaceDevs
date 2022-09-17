@@ -1,6 +1,7 @@
 @import "../css/theme.css";
 
 .launch-wrapper {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,8 +19,7 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  min-height: calc(100vh - 100px);
-  flex-grow: 1;
+  height: 100%;
   z-index: 0;
 }
 
@@ -50,15 +50,15 @@
 
 .space-image {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  bottom: 0;
+  right: 25%;
+  width: min-content;
+  height: min-content;
   transition: all 1500ms ease;
 }
 
 .space-image--launched {
-  top: -300px;
+  bottom: 150px;
   animation-name: shake;
   animation-duration: 1s;
   animation-iteration-count: infinite;
@@ -79,17 +79,37 @@
 
 .exhaust--appear {
   opacity: 1;
-  bottom: 100px;
+  bottom: -41px;
+  right: -11%;
 }
 
 .btn-launch {
+  position: absolute;
+  top: 0;
   color: var(--text-color);
+  z-index: 15;
+}
+
+.btn-land {
+  display: none;
+  position: absolute;
+  top: 0;
+  color: var(--text-color);
+  z-index: 15;
 }
 
 .btn-launch:hover {
   color: var(--bg-color);
   background-color: var(--danger-color);
   border-color: var(--danger-color);
+}
+
+.btn--hide {
+  display: none;
+}
+
+.btn--show {
+  display: block;
 }
 
 @keyframes shake {
@@ -130,8 +150,9 @@
 
 @media screen and (min-width: 0px) {
   .image-wrapper {
-    width: 120px;
-    height: 120px;
+    width: 200px;
+    height: 600px;
+    /* transform: scale(0.8); */
   }
 }
 
