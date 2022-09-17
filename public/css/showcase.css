@@ -1,0 +1,123 @@
+.showcase {
+    position: relative;
+    overflow: hidden;
+}
+
+.showcase-flex {
+    width: 100%;
+    min-height: calc(100vh - 80px);
+}
+
+.showcase-text-wrapper {
+    position: relative;
+    display: flex;
+}
+
+.showcase__text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: perspective(300px) rotateX(25deg);
+    transform-origin: 50% 100%;
+    font-weight: bold;
+    overflow: hidden;
+    font-size: 350%;
+}
+
+.showcase__content {
+    animation: scroll 100s infinite 3s;
+    position: absolute;
+    top: 100%;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.showcase__paragraph {
+    text-align: left;
+}
+
+.stars {
+    position: absolute;
+    background-color: var(--text-color);
+    border-radius: 50%;
+    width: 1px;
+    height: 1px;
+}
+
+
+.showcase__btn {
+    padding: 0.5rem 2rem;
+}
+
+.showcase__btn:hover {
+    color: var(--invTxt-color);
+    background-color: var(--text-color);
+}
+
+@keyframes scroll {
+    0% {
+        top: 100%;
+    }
+    100% {
+        top: -170%;
+    }
+}
+
+@media screen and (min-width: 0px) {
+    .showcase-text-wrapper {
+        margin-top: 3rem;
+        width: 300px;
+        height: 300px;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .showcase-flex {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .showcase__text {
+        font-size: 200%;
+    }
+}
+
+@media screen and (min-width: 414px) {
+    .showcase-text-wrapper {
+        width: 92%;
+        min-height: 92%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .showcase-text-wrapper {
+        width: 500px;
+        height: 500px;
+    }
+
+    .showcase__text {
+        top: -50%;
+        left: 0;
+        font-size: 350%;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .showcase-text-wrapper {
+        width: 850px;
+        height: 400px;
+    }
+
+    .showcase__text {
+        top: -40%;
+    }
+    
+    .showcase-flex {
+        justify-content: center;
+        align-items: center;
+    }
+}

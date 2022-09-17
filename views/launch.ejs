@@ -30,13 +30,21 @@
       <div class="max-wrapper">
         <div class="flex-2">
           <div class="launch-wrapper">
+            <button class="btn btn-launch">
+              YEET
+            </button>
+            <button class="btn btn-land">
+              LAND
+            </button>
             <div class="floor">
-              <button class="btn btn-launch">YEET</button>
             </div>
             <div class="air">
               <%- include('starry_field') %>
               <div class="image-wrapper">
-                <img class="space-image" src="img/<%= shipType %>.png" />
+                <img
+                  class="space-image"
+                  src="img/carousel/<%= shipType %>.png"
+                />
                 <p class="exhaust">
                   We are about to launch in here!!!dfgsdgdsgfsregs
                 </p>

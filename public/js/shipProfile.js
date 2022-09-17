@@ -76,7 +76,7 @@ async function fetchRocket(id) {
     .catch((err) => console.log(err));
 }
 
-fetchRocket();
+// fetchRocket();
 
 async function fetchHistory() {
   const response = await fetch("https://api.spacexdata.com/v4/history", {
@@ -90,4 +90,4 @@ async function fetchHistory() {
     .catch((err) => console.log(err));
 }
 
-fetchHistory();
+// fetchHistory();

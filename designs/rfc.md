@@ -12,3 +12,8 @@ Must redirect to Launch if shipProfile exists
 
 Maybe -
 History Text on Launch Page
+
+_TODOS_
+-change background color of buttons
+-add background image and text on home pager
+-make api change info with each rocket
