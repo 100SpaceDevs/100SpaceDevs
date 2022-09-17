@@ -2,7 +2,7 @@
 
 .btn {
   border: none;
-  color: var(--greyTxt-color);
+  color: var(--text-color);
   background-color: transparent;
   padding: 0.5rem 1.2rem;
   background-color: var(--bg-color);
@@ -10,10 +10,12 @@
   border: 2px solid var(--thirdBg-color);
   margin: 1.2rem 0;
   transition: all 400ms ease;
+  font-weight: var(--fnt-weight-2);
+
 }
 
 .acc-btn {
-  color: var(--text-hover-1);
+  color: var(--text-color);
   padding: 0.55rem 1.2rem;
   background-color: var(--bg-color);
   border-radius: 7px;
@@ -95,7 +97,7 @@
 
 .form__desc {
   font-size: var(--reg-size);
-  color: var(--invTxt-color);
+  color: var(--text-color);
   padding: 1rem 0;
 }
 
