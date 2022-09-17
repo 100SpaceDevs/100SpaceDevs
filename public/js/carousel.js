@@ -43,9 +43,9 @@ function setShipType(slideIndex) {
       "img/rocketPhotos/Falcon9v1_1.jpg",
     ],
   };
+  ship.value = shipInfo[slideIndex][0];
   rocketInfo.innerText = shipInfo[slideIndex][1];
   launchPhoto.src = shipInfo[slideIndex][2];
-  ship.value = shipInfo[slideIndex][0];
 }
 
 function plusSlides(n) {
